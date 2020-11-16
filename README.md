@@ -1,1 +1,1 @@
-# WIP: .NET Core 3 + Angular Template 
+WIP: .NET 5 + Angular Template 
