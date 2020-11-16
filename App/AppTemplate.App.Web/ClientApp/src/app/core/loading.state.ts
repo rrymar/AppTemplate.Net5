@@ -1,11 +1,11 @@
-export abstract class LoadingState {
+export interface LoadingState {
   isLoading: boolean;
 }
 
-export abstract class EntityLoadingState<T> extends LoadingState {
-  entity?: T;
+export interface EntityLoadingState<T> extends LoadingState {
+  entity: T | null;
 }
 
-export abstract class ItemsLoadingState<T> extends LoadingState {
-  items?: T[];
+export interface ItemsLoadingState<T> extends LoadingState {
+  items: T[];
 }

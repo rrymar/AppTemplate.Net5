@@ -6,8 +6,8 @@ import { LoadUsersAction } from './users-list.actions';
 import { Injectable } from '@angular/core';
 import { ItemsLoadingState } from  'app/core/loading.state';
 
-export class UsersList extends ItemsLoadingState<UserModel> {
-  totalCount: number = 0;
+export interface UsersList extends ItemsLoadingState<UserModel> {
+  totalCount: number;
 }
 
 const INITIAL_STATE = {

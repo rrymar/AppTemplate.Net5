@@ -27,7 +27,7 @@ export class UserDetailsState {
 
   @Action(LoadUserAction)
   loadUser(ctx: StateContext<EntityLoadingState<UserModel>>, action: LoadUserAction) {
-    ctx.setState(new EntityLoadingState(true));
+    ctx.setState({ isLoading: true, entity: null });
 
     return this.service.get(action.id)
       .pipe(tap(r => this.updateEntity(r, ctx), () => this.onError(ctx)));
@@ -36,8 +36,7 @@ export class UserDetailsState {
   @Action(SaveUserAction)
   saveUser(ctx: StateContext<EntityLoadingState<UserModel>>, action: SaveUserAction) {
     var user = action.user;
-
-    ctx.setState({ isLoading: true });
+    ctx.patchState({ isLoading: true });
 
     var request = user.id
       ? this.service.update(user.id, user)
@@ -63,7 +62,7 @@ export class UserDetailsState {
 
   @Action(ResetUserAction)
   resetCurrentUser(ctx: StateContext<EntityLoadingState<UserModel>>, action: ResetUserAction) {
-    ctx.setState({ isLoading: false });
+    ctx.setState({ isLoading: false, entity: null });
   }
 
   private navigateToList(ctx: StateContext<EntityLoadingState<UserModel>>) {
@@ -71,9 +70,7 @@ export class UserDetailsState {
   }
 
   private onError(ctx: StateContext<EntityLoadingState<UserModel>>) {
-    ctx.patchState({
-      isLoading: false,
-    });
+    ctx.patchState({ isLoading: false });
   }
 
   private updateEntity(entity: UserModel | null , ctx: StateContext<EntityLoadingState<UserModel>>) {
