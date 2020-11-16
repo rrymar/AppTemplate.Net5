@@ -1,0 +1,6 @@
+<Project>
+	<PropertyGroup>
+	  <NullableReferenceTypes>true</NullableReferenceTypes>
+	  <LangVersion>9.0</LangVersion>
+	</PropertyGroup>
+</Project>
