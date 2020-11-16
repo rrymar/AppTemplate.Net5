@@ -1,1 +1,26 @@
-/* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.snackbar-error {
+  background-color: lightcoral;
+  color: black;
+}
+
+.snackbar-warning {
+  background-color: lightgoldenrodyellow;
+  color: black;
+}
+
+.snackbar-warning button,
+.snackbar-error button {
+  color: black
+}
