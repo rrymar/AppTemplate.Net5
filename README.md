@@ -1,1 +1,1 @@
-# AppTemplate.Net5
+# WIP: .NET Core 3 + Angular Template 
