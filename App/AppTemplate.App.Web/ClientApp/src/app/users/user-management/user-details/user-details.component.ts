@@ -21,7 +21,7 @@ export class UserDetailsComponent implements OnInit, OnDestroy {
       .pipe(debounce(v => timer(v ? 300 : 0)));
   }
 
-  private id: number;
+  private id: number = 0;
 
   isLoading$: Observable<boolean>;
 

@@ -1,4 +1,4 @@
-export class ResultsList<T> {
+export interface ResultsList<T> {
   totalCount: number;
   items: T[];
 }

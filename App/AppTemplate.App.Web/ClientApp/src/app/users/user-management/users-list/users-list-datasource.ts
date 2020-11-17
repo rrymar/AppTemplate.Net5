@@ -9,8 +9,8 @@ import { LoadUsersAction } from './users-list.actions';
 import { takeUntil } from 'rxjs/operators';
 
 export class UsersListDataSource extends DataSource<UserModel> {
-  paginator: MatPaginator;
-  sort: MatSort;
+  paginator: MatPaginator | undefined;
+  sort: MatSort | undefined;
 
   private disconnected = new Subject();
 
@@ -19,17 +19,17 @@ export class UsersListDataSource extends DataSource<UserModel> {
   }
 
   connect(): Observable<UserModel[]> {
-    this.sort.sortChange
+    this.sort!.sortChange
       .pipe(takeUntil(this.disconnected))
-      .subscribe(() => this.paginator.pageIndex = 0);
+      .subscribe(() => this.paginator!.pageIndex = 0);
 
-    merge(this.paginator.page, this.sort.sortChange)
+    merge(this.paginator!.page, this.sort!.sortChange)
       .pipe(takeUntil(this.disconnected))
       .subscribe(() => this.load());
 
     this.store.select(UsersListState.totalCount)
       .pipe(takeUntil(this.disconnected))
-      .subscribe(t => this.paginator.length = t);
+      .subscribe(t => this.paginator!.length = t);
 
     return this.store.select(UsersListState.items)
       .pipe(takeUntil(this.disconnected));
@@ -37,10 +37,10 @@ export class UsersListDataSource extends DataSource<UserModel> {
 
   load(keyword: string = '') {
     this.store.dispatch(new LoadUsersAction({
-      pageIndex: this.paginator.pageIndex,
-      pageSize: this.paginator.pageSize,
-      sortField: this.sort.active,
-      isDesc: this.sort.direction === 'desc',
+      pageIndex: this.paginator!.pageIndex,
+      pageSize: this.paginator!.pageSize,
+      sortField: this.sort!.active,
+      isDesc: this.sort!.direction === 'desc',
       keyword: keyword
     }));
   }

@@ -15,10 +15,10 @@ import { debounce } from 'rxjs/operators';
   styleUrls: ['./users-list.component.scss']
 })
 export class UsersListComponent implements AfterViewInit, OnInit {
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
-  @ViewChild(MatTable) table: MatTable<UserModel>;
-  dataSource: UsersListDataSource;
+  @ViewChild(MatPaginator) paginator: MatPaginator| undefined;
+  @ViewChild(MatSort) sort: MatSort | undefined;
+  @ViewChild(MatTable) table: MatTable<UserModel> | undefined;
+  dataSource: UsersListDataSource | undefined;
 
   isLoading$: Observable<boolean>;
 
@@ -34,10 +34,10 @@ export class UsersListComponent implements AfterViewInit, OnInit {
   }
 
   ngAfterViewInit() {
-    this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator;
-    this.table.dataSource = this.dataSource;
+    this.dataSource!.sort = this.sort;
+    this.dataSource!.paginator = this.paginator;
+    this.table!.dataSource = this.dataSource!;
 
-    window.setTimeout(() => this.dataSource.load());
+    window.setTimeout(() => this.dataSource!.load());
   }
 }
