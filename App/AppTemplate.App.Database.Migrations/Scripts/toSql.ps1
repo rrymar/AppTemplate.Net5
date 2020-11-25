@@ -17,9 +17,9 @@ $migrationsPaths = Get-ChildItem -Path $migrationsPath -Exclude *ContextModelSna
 Try
 {
     pushd $rootPath
-	
+
 	$prevMigration = "0"
-	
+
 	foreach ($migrationPath in $migrationsPaths)
 	{
 		$migration = $migrationPath.Name.Replace(".cs","")
@@ -29,8 +29,8 @@ Try
 		dotnet ef migrations script $prevMigration $migration -i -o $scriptPath --project $project --startup-project $startupProject --context $contextName
 
 		$prevMigration = $migration
-			
-		$newContent = get-content -Path $scriptPath | select -Skip 11
+
+		$newContent = get-content -Path $scriptPath | select -Skip 12 | select -SkipLast 3 #skipping header and footer
 		Set-Content -Path $scriptPath -Value ($newContent)
 		"Done " + $migration
     }
