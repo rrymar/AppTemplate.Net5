@@ -19,13 +19,13 @@ namespace AppTemplate.App.Web
 
             startupConfigurations.Add(new SwaggerConfiguration("AppTemplate", "v1"));
             startupConfigurations.Add(new ApplicationInsightsConfiguration());
+            startupConfigurations.Add(new WebCoreConfiguration());
 
             startupConfigurations.Add(new AspNetConfiguration(new []
             {
                 new UsersModule()
             }));
 
-            startupConfigurations.Add(new WebCoreConfiguration());
             startupConfigurations.Add(new DatabaseMigrationConfiguration<DataContext>());
         }
 
