@@ -13,13 +13,11 @@ namespace Core.Web.DependencyInjection
             module.Register(services);
         }
 
-        public static void RegisterTopLevelModule<T>(this IServiceCollection services,
-            IMvcBuilder mvcBuider, IConfiguration configuration)
-            where T : ITopLevelModule, new()
+        public static void RegisterTopLevelModule(this IServiceCollection services,
+            ITopLevelModule module,
+            IMvcBuilder builder, IConfiguration configuration)
         {
-            var module = new T();
-            mvcBuider.AddApplicationPart(module.GetType().Assembly);
-
+            builder.AddApplicationPart(module.GetType().Assembly);
             module.Register(services, configuration);
         }
     }
