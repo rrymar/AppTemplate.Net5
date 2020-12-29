@@ -279,3 +279,4 @@ scripts/data-migration/assets/
 
 #PowerShell local Test files
 **/TestRun*.ps1
+/App/AppTemplate.App.Web.React/ClientApp/.eslintcache
