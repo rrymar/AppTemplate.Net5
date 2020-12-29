@@ -26,6 +26,8 @@ namespace AppTemplate.App.Web
                 new UsersModule()
             }));
 
+            startupConfigurations.Add(new AngularSpaConfiguration());
+
             startupConfigurations.Add(new DatabaseMigrationConfiguration<DataContext>());
         }
 

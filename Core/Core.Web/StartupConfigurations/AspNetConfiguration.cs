@@ -11,14 +11,11 @@ namespace Core.Web.StartupConfigurations
 {
     public class AspNetConfiguration : IStartupConfiguration
     {
-        private readonly string spaPath;
-
         private readonly IEnumerable<ITopLevelModule> modules;
 
-        public AspNetConfiguration(IEnumerable<ITopLevelModule> modules, string spaPath = "ClientApp/dist")
+        public AspNetConfiguration(IEnumerable<ITopLevelModule> modules)
         {
             this.modules = modules;
-            this.spaPath = spaPath;
         }
 
         public void ConfigureServices(IServiceCollection services, IConfiguration configuration)
@@ -28,8 +25,6 @@ namespace Core.Web.StartupConfigurations
             {
                 services.RegisterTopLevelModule(module, builder, configuration);
             }
-
-            services.AddSpaStaticFiles(c => c.RootPath = spaPath);
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IConfiguration configuration)
@@ -47,14 +42,6 @@ namespace Core.Web.StartupConfigurations
             app.UseRouting();
 
             app.UseEndpoints(endpoints => endpoints.MapDefaultControllerRoute());
-
-            app.UseSpa(spa =>
-            {
-                spa.Options.SourcePath = "ClientApp";
-
-                if (env.IsDevelopment())
-                    spa.UseAngularCliServer("start");
-            });
         }
     }
 }

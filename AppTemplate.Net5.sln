@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppTemplate.App.Database", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppTemplate.App.Database.Migrations", "App\AppTemplate.App.Database.Migrations\AppTemplate.App.Database.Migrations.csproj", "{0C319C84-CAA3-4296-8AEA-F9E60A14ECFC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppTemplate.App.Web.React", "App\AppTemplate.App.Web.React\AppTemplate.App.Web.React.csproj", "{CDCF19C1-0D87-4C6B-AFC2-CAB2EB088758}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +51,7 @@ Global
 		{DA9B0DEB-879B-4DAA-B6AC-63F6EEC8FA1F} = {9FBABD1D-9A95-4CA9-BE85-DC16B4D70059}
 		{7ADCDD24-F208-4CAD-9666-5AE599CB532E} = {A451F799-95A9-4803-9958-4A6A0E239208}
 		{0C319C84-CAA3-4296-8AEA-F9E60A14ECFC} = {A451F799-95A9-4803-9958-4A6A0E239208}
+		{CDCF19C1-0D87-4C6B-AFC2-CAB2EB088758} = {A451F799-95A9-4803-9958-4A6A0E239208}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{5EF98BC8-8811-4CCB-AA8A-7202754F49E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -91,5 +94,9 @@ Global
 		{0C319C84-CAA3-4296-8AEA-F9E60A14ECFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C319C84-CAA3-4296-8AEA-F9E60A14ECFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C319C84-CAA3-4296-8AEA-F9E60A14ECFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDCF19C1-0D87-4C6B-AFC2-CAB2EB088758}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDCF19C1-0D87-4C6B-AFC2-CAB2EB088758}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDCF19C1-0D87-4C6B-AFC2-CAB2EB088758}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDCF19C1-0D87-4C6B-AFC2-CAB2EB088758}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
