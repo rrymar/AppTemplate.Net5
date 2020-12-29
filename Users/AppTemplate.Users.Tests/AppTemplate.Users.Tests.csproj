@@ -6,7 +6,7 @@
 
     <ItemGroup>
         <ProjectReference Include="..\..\App\AppTemplate.App.Database.Migrations\AppTemplate.App.Database.Migrations.csproj" />
-        <ProjectReference Include="..\..\App\AppTemplate.App.Web\AppTemplate.App.Web.csproj" />
+        <ProjectReference Include="..\..\App\AppTemplate.App.Web.Angular\AppTemplate.App.Web.Angular.csproj" />
         <ProjectReference Include="..\..\Core\Core.Tests\Core.Tests.csproj" />
         <ProjectReference Include="..\AppTemplate.Users\AppTemplate.Users.csproj" />
     </ItemGroup>
