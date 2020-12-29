@@ -7,7 +7,7 @@ namespace AppTemplate.App.Database
 {
     public class DataContext : CoreDataContext
     {
-        public DbSet<UserPreference> UserPreferenses { get; set; }
+        public DbSet<UserPreference> UserPreferences { get; set; }
 
         public DataContext(DbContextOptions<DataContext> options, ICurrentUserLocator currentUserLocator)
          : base(options, currentUserLocator)
