@@ -26,6 +26,7 @@ namespace AppTemplate.App.Web
                 new UsersModule()
             }));
 
+            startupConfigurations.Add(new ReactSpaConfiguration());
             startupConfigurations.Add(new DatabaseMigrationConfiguration<DataContext>());
         }
 
