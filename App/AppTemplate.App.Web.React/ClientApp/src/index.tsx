@@ -4,18 +4,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'fontsource-roboto';
-import { Helmet } from "react-helmet";
+import {BrowserRouter} from 'react-router-dom';
 
 ReactDOM.render(
-    <React.StrictMode>
-        <Helmet>
-            <meta
-                name="viewport"
-                content="minimum-scale=1, initial-scale=1, width=device-width"
-            />
-        </Helmet>
-        <App/>
-    </React.StrictMode>,
+    <BrowserRouter>
+        <React.StrictMode>
+
+            <App/>
+        </React.StrictMode>
+    </BrowserRouter>,
     document.getElementById('root')
 );
 
