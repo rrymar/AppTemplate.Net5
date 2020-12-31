@@ -1,6 +1,10 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import axios from 'axios';
 import {Columns, DataGrid, RowsProp} from '@material-ui/data-grid';
 import {Typography} from '@material-ui/core';
+import {User} from './user';
+import {SearchQuery} from '../Core/searchQuery';
+import {ResultsList} from '../Core/resultsList';
 
 const columns: Columns = [
     {field: 'id', headerName: 'ID', width: 70},
@@ -15,19 +19,31 @@ const rows: RowsProp = [
     {id: 2, username: 'Lannister', fullName: 'Cersei Iron', createdOn: new Date(), email: null},
 ];
 
-class UsersList extends React.Component {
-    render() {
-        return (
-            <div>
-                <Typography variant="h6">
-                    Users
-                </Typography>
+function UsersList() {
+    const [isLoaded, setIsLoaded] = useState(false);
+    const [items, setItems] = useState<User[]>([]);
+
+    useEffect(() => {
+        let query = new SearchQuery();
+        axios.post<ResultsList<User>>('api/Users/Search', query)
+            .then(res => {
+                setIsLoaded(true);
+                setItems(res.data.items);
+            });
+    },[]);
+
+    return (
+        <div>
+            <Typography variant="h6">
+                Users
+            </Typography>
+            { isLoaded &&
                 <div style={{height: 400, width: '100%'}}>
-                    <DataGrid rows={rows} columns={columns} pageSize={5} checkboxSelection/>
+                    <DataGrid rows={items} columns={columns} pageSize={10}/>
                 </div>
-            </div>
-        );
-    }
+            }
+        </div>
+    );
 }
 
 export default UsersList;
