@@ -1,4 +1,5 @@
-﻿using Core.Web.Crud;
+﻿using System.Threading;
+using Core.Web.Crud;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AppTemplate.Users.UserManagement.Search
@@ -8,7 +9,7 @@ namespace AppTemplate.Users.UserManagement.Search
     public class SearchUsersController : ControllerBase
     {
         private readonly SearchUsersService service;
-        
+
         public SearchUsersController(SearchUsersService service)
         {
             this.service = service;
