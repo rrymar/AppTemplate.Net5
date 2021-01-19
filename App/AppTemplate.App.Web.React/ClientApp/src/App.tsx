@@ -4,6 +4,7 @@ import {Link as RouterLink, Router, Route, Switch} from 'react-router-dom';
 import UsersList from './UserManagement/UsersList';
 import UsersListAnt from './UserManagement/UsersListAnt';
 import {createBrowserHistory} from 'history';
+import UsersListMaterial from './UserManagement/UsersListMaterial';
 
 const useStyles = makeStyles((theme) => ({
     navigateButton: {
@@ -34,17 +35,22 @@ function App() {
                             color="inherit"
                             className={classes.navigateButton}
                             component={RouterLink}
-                            to="/users"
-                        >
-                            Users
+                            to="/users">
+                            Users Primereact
                         </Button>
                         <Button
                             color="inherit"
                             className={classes.navigateButton}
                             component={RouterLink}
-                            to="/users-ant"
-                        >
+                            to="/users-ant">
                             Users Ant Design
+                        </Button>
+                        <Button
+                            color="inherit"
+                            className={classes.navigateButton}
+                            component={RouterLink}
+                            to="/users-mat">
+                            Users Material
                         </Button>
                     </Toolbar>
                 </AppBar>
@@ -55,6 +61,9 @@ function App() {
                         </Route>
                         <Route path="/users-ant">
                             <UsersListAnt/>
+                        </Route>
+                        <Route path="/users-mat">
+                            <UsersListMaterial/>
                         </Route>
                     </Switch>
                 </div>
