@@ -2,6 +2,7 @@ import React from 'react';
 import {AppBar, Button, makeStyles, Toolbar, Link} from '@material-ui/core';
 import {Link as RouterLink, Router, Route, Switch} from 'react-router-dom';
 import UsersList from './UserManagement/UsersList';
+import UsersListAnt from './UserManagement/UsersListAnt';
 import {createBrowserHistory} from 'history';
 
 const useStyles = makeStyles((theme) => ({
@@ -37,12 +38,23 @@ function App() {
                         >
                             Users
                         </Button>
+                        <Button
+                            color="inherit"
+                            className={classes.navigateButton}
+                            component={RouterLink}
+                            to="/users-ant"
+                        >
+                            Users Ant Design
+                        </Button>
                     </Toolbar>
                 </AppBar>
                 <div className={classes.pageContainer}>
                     <Switch>
                         <Route path="/users">
                             <UsersList/>
+                        </Route>
+                        <Route path="/users-ant">
+                            <UsersListAnt/>
                         </Route>
                     </Switch>
                 </div>
