@@ -7,8 +7,8 @@ import {Table} from 'antd';
 import {Typography} from '@material-ui/core';
 
 import {User} from './user';
-import {SearchQuery} from '../Core/searchQuery';
-import {ResultsList} from '../Core/resultsList';
+import {SearchQuery} from 'Core/searchQuery';
+import {ResultsList} from 'Core/resultsList';
 import _ from 'lodash';
 import {ColumnsType, Key, SorterResult, TablePaginationConfig} from 'antd/lib/table/interface';
 

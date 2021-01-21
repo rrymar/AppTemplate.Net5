@@ -1,20 +1,30 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
+import _ from 'lodash';
 
-import {Columns, DataGrid, PageChangeParams, SortDirection, SortItem, SortModel, SortModelParams} from '@material-ui/data-grid';
+import {
+    Columns,
+    DataGrid,
+    PageChangeParams,
+    SortDirection,
+    SortModelParams,
+    ValueGetterParams
+} from '@material-ui/data-grid';
 
 import {Typography} from '@material-ui/core';
 
 import {User} from './user';
-import {SearchQuery} from '../Core/searchQuery';
-import {ResultsList} from '../Core/resultsList';
-import _ from 'lodash';
+import {SearchQuery} from 'Core/searchQuery';
+import {ResultsList} from 'Core/resultsList';
+import {parseIsoDate} from 'Core/formatting';
+
 
 const columns: Columns = [
     {field: 'id', headerName: 'ID', flex:1 },
     {field: 'username', headerName: 'User Name', flex: 5},
     {field: 'fullName', headerName: 'Full name', flex: 10},
-    {field: 'createdOn', headerName: 'Created On', flex: 10, type: 'dateTime'},
+    {field: 'createdOn', headerName: 'Created On', flex: 10, type: 'dateTime',
+        valueGetter: (p)=> parseIsoDate(p.value)},
     {field: 'email', headerName: 'Email', flex: 10},
 ];
 
