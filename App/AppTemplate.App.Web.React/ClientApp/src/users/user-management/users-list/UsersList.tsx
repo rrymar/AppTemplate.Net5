@@ -11,7 +11,7 @@ import 'primeflex/primeflex.css';
 
 import {Typography} from '@material-ui/core';
 
-import {User} from './user';
+import {User} from '../user';
 import {SearchQuery} from 'core/searchQuery';
 import {ResultsList} from 'core/resultsList';
 import _ from 'lodash';

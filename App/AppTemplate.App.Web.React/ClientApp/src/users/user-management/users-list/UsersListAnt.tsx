@@ -6,11 +6,11 @@ import {Table} from 'antd';
 
 import {Typography} from '@material-ui/core';
 
-import {User} from './user';
+import {User} from '../user';
 import {SearchQuery} from 'core/searchQuery';
 import {ResultsList} from 'core/resultsList';
 import _ from 'lodash';
-import {ColumnsType, Key, SorterResult, TablePaginationConfig} from 'antd/lib/table/interface';
+import {ColumnsType, TablePaginationConfig} from 'antd/lib/table/interface';
 
 const columns: ColumnsType<User> = [
     {
