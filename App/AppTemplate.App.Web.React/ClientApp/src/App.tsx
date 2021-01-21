@@ -1,10 +1,10 @@
 import React from 'react';
 import {AppBar, Button, makeStyles, Toolbar, Link} from '@material-ui/core';
 import {Link as RouterLink, Router, Route, Switch} from 'react-router-dom';
-import UsersList from './UserManagement/UsersList';
-import UsersListAnt from './UserManagement/UsersListAnt';
+import UsersList from './Users/UserManagement/UsersList';
+import UsersListAnt from './Users/UserManagement/UsersListAnt';
 import {createBrowserHistory} from 'history';
-import UsersListMaterial from './UserManagement/UsersListMaterial';
+import UsersListMaterial from './Users/UserManagement/UsersListMaterial';
 
 const useStyles = makeStyles((theme) => ({
     navigateButton: {

@@ -31,6 +31,10 @@
       <_ContentIncludedByDefault Remove="wwwroot\favicon.ico" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="ClientApp\src\Users" />
+    </ItemGroup>
+
 
     <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
         <Exec Command="node --version" ContinueOnError="true">
