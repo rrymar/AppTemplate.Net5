@@ -8,19 +8,18 @@ import {
     PageChangeParams,
     SortDirection,
     SortModelParams,
-    ValueGetterParams
 } from '@material-ui/data-grid';
 
 import {Typography} from '@material-ui/core';
 
 import {User} from './user';
-import {SearchQuery} from 'Core/searchQuery';
-import {ResultsList} from 'Core/resultsList';
-import {parseIsoDate} from 'Core/formatting';
+import {SearchQuery} from 'core/searchQuery';
+import {ResultsList} from 'core/resultsList';
+import {parseIsoDate} from 'core/formatting';
 
 
 const columns: Columns = [
-    {field: 'id', headerName: 'ID', flex:1 },
+    {field: 'id', headerName: 'Id', flex:2 },
     {field: 'username', headerName: 'User Name', flex: 5},
     {field: 'fullName', headerName: 'Full name', flex: 10},
     {field: 'createdOn', headerName: 'Created On', flex: 10, type: 'dateTime',
