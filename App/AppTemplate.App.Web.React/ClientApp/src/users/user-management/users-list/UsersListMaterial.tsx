@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import {Link as RouterLink} from 'react-router-dom';
 import axios from 'axios';
 import _ from 'lodash';
 
@@ -12,7 +13,7 @@ import {
 
 import {useHistory} from 'react-router-dom';
 
-import {Typography} from '@material-ui/core';
+import {Button, Typography} from '@material-ui/core';
 
 import {User} from '../user';
 import {SearchQuery} from 'core/searchQuery';
@@ -56,10 +57,10 @@ function UsersList() {
             keyword: ''
         };
 
-        axios.post<ResultsList<User>>('api/Users/Search', query)
+        axios.post<ResultsList<User>>('/api/Users/Search', query)
             .then(res => {
-                setItems(res.data.items);
                 setTotalCount(res.data.totalCount);
+                setItems(res.data.items);
             })
             .finally(() => setIsLoading(false));
     }, [page, pageSize, sortField, sortOrder]);
@@ -83,7 +84,12 @@ function UsersList() {
         <div>
             <Typography variant="h6">
                 Users
+                <Button color="inherit" component={RouterLink} to="users/new">
+                    Create New
+                </Button>
             </Typography>
+
+
             <div>
                 <DataGrid autoHeight={true}
                           key={'id'}
