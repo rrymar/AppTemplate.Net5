@@ -12,7 +12,7 @@ namespace Core.Tests.Database
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = false, Inherited = true)]
     public sealed class AutoRollbackAttribute : BeforeAfterTestAttribute
     {
-        TransactionScope scope;
+        private TransactionScope scope;
 
         /// <summary>
         /// Gets or sets whether transaction flow across thread continuations is enabled for TransactionScope.

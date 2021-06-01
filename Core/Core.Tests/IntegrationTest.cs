@@ -5,15 +5,12 @@ using System;
 
 namespace Core.Tests
 {
-
     [AutoRollback]
     public abstract class IntegrationTest<TDbContex, TStartup, TMigrationScripts>
         where TDbContex : DbContext
         where TStartup : class
     {
         private readonly TestApplicationFactory<TDbContex, TStartup, TMigrationScripts> factory;
-
-        protected virtual bool CreateTransaction => false;
 
         protected readonly TDbContex DataContext;
 
