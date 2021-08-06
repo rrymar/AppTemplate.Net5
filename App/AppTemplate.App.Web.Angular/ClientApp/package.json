@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build:stats": "ng build --stats-json --prod",
-    "analyze": "webpack-bundle-analyzer dist/App/stats.json"
+    "analyze": "webpack-bundle-analyzer dist/AppTemplate/stats.json"
   },
   "private": true,
   "dependencies": {
