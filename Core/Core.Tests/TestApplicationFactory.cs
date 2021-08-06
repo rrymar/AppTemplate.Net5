@@ -11,12 +11,12 @@ using System.IO;
 
 namespace Core.Tests
 {
-    public class TestApplicationFactory<TDbContex, TStartup, TMigrationScripts> : WebApplicationFactory<TStartup>
-        where TDbContex : DbContext
+    public class TestApplicationFactory<TDbContext, TStartup, TMigrationScripts> : WebApplicationFactory<TStartup>
+        where TDbContext : DbContext
         where TStartup : class
     {
-        public virtual List<ITestMigration<TDbContex>> TestMigrations 
-            => new List<ITestMigration<TDbContex>>();
+        public virtual List<ITestMigration<TDbContext>> TestMigrations
+            => new List<ITestMigration<TDbContext>>();
 
         public IHttpClient CreateTestClient()
         {
@@ -35,7 +35,7 @@ namespace Core.Tests
             builder.ConfigureTestServices(s =>
             {
                 var provider = s.BuildServiceProvider();
-                var db = provider.GetRequiredService<TDbContex>();
+                var db = provider.GetRequiredService<TDbContext>();
                 db.InitTestDatabases(typeof(TMigrationScripts).Assembly, TestMigrations);
                 provider.Dispose();
 
@@ -43,7 +43,7 @@ namespace Core.Tests
             });
         }
 
-        protected virtual void ConfigureTestServices(IServiceCollection services) 
+        protected virtual void ConfigureTestServices(IServiceCollection services)
         {
             services.AddScoped(_ => new RestClient(CreateTestClient()));
         }
